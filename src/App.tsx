@@ -1,22 +1,31 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from './store'
-import { fetchProdutos } from './features/produtosSlice'
-import { adicionarAoCarrinho } from './features/carrinhoSlice'
-import { favoritar } from './features/favoritosSlice'
-import Header from './components/Header'
-import Produtos from './containers/Produtos'
-import { GlobalStyle } from './styles'
+/* eslint-disable no-undef */
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+// eslint-disable-next-line no-unused-vars
+import { RootState, AppDispatch } from './store';
+import { fetchProdutos } from './features/produtosSlice';
+import { adicionarAoCarrinho } from './features/carrinhoSlice';
+import { favoritar } from './features/favoritosSlice';
+import Header from './components/Header';
+import Produtos from './containers/Produtos';
+import { GlobalStyle } from './styles';
+
+export type Produto = {
+  id: number;
+  nome: string;
+  preco: number;
+  imagem: string;
+};
 
 function App() {
-  const dispatch = useDispatch<AppDispatch>()
-  const produtos = useSelector((state: RootState) => state.produtos.produtos)
-  const carrinho = useSelector((state: RootState) => state.carrinho)
-  const favoritos = useSelector((state: RootState) => state.favoritos)
+  const dispatch = useDispatch<AppDispatch>();
+  const produtos = useSelector((state: RootState) => state.produtos.produtos);
+  const carrinho = useSelector((state: RootState) => state.carrinho);
+  const favoritos = useSelector((state: RootState) => state.favoritos);
 
   useEffect(() => {
-    dispatch(fetchProdutos())
-  }, [dispatch])
+    dispatch(fetchProdutos());
+  }, [dispatch]);
 
   return (
     <>
@@ -33,7 +42,7 @@ function App() {
         />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

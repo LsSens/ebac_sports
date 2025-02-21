@@ -1,20 +1,21 @@
-import * as S from './styles'
+/* eslint-disable no-undef */
+import * as S from './styles';
 
-import { Produto } from '../../App'
+import { Produto } from '../../App';
 
-import cesta from '../../assets/cesta.png'
-import { paraReal } from '../Produto'
+import cesta from '../../assets/cesta.png';
+import { paraReal } from '../Produto';
 
 type Props = {
-  itensNoCarrinho: Produto[]
-  favoritos: Produto[]
-}
+  itensNoCarrinho: Produto[];
+  favoritos: Produto[];
+};
 
 const Header = ({ itensNoCarrinho, favoritos }: Props) => {
   const valorTotal = itensNoCarrinho.reduce((acc, item) => {
-    acc += item.preco
-    return acc
-  }, 0)
+    acc += item.preco;
+    return acc;
+  }, 0);
 
   return (
     <S.Header>
@@ -27,7 +28,7 @@ const Header = ({ itensNoCarrinho, favoritos }: Props) => {
         </span>
       </div>
     </S.Header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

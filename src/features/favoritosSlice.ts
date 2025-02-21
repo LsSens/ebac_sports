@@ -1,24 +1,26 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Produto } from './produtosSlice'
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-unused-vars
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Produto } from './produtosSlice';
 
-type FavoritosState = Produto[]
+type FavoritosState = Produto[];
 
-const initialState: FavoritosState = []
+const initialState: FavoritosState = [];
 
 const favoritosSlice = createSlice({
   name: 'favoritos',
   initialState,
   reducers: {
     favoritar: (state, action: PayloadAction<Produto>) => {
-      const produto = state.find((p) => p.id === action.payload.id)
+      const produto = state.find((p) => p.id === action.payload.id);
       if (produto) {
-        return state.filter((p) => p.id !== action.payload.id)
+        return state.filter((p) => p.id !== action.payload.id);
       } else {
-        state.push(action.payload)
+        state.push(action.payload);
       }
-    }
-  }
-})
+    },
+  },
+});
 
-export const { favoritar } = favoritosSlice.actions
-export default favoritosSlice.reducer
+export const { favoritar } = favoritosSlice.actions;
+export default favoritosSlice.reducer;

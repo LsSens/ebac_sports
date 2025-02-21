@@ -1,27 +1,28 @@
-import { Produto as ProdutoType } from '../App'
-import Produto from '../components/Produto'
+/* eslint-disable no-undef */
+import { Produto as ProdutoType } from '../App';
+import Produto from '../components/Produto';
 
-import * as S from './styles'
+import * as S from './styles';
 
 type Props = {
-  produtos: ProdutoType[]
-  favoritos: ProdutoType[]
-  adicionarAoCarrinho: (produto: ProdutoType) => void
-  favoritar: (produto: ProdutoType) => void
-}
+  produtos: ProdutoType[];
+  favoritos: ProdutoType[];
+  adicionarAoCarrinho: (produto: ProdutoType) => void;
+  favoritar: (produto: ProdutoType) => void;
+};
 
 const ProdutosComponent = ({
   produtos,
   favoritos,
   adicionarAoCarrinho,
-  favoritar
+  favoritar,
 }: Props) => {
   const produtoEstaNosFavoritos = (produto: ProdutoType) => {
-    const produtoId = produto.id
-    const IdsDosFavoritos = favoritos.map((f) => f.id)
+    const produtoId = produto.id;
+    const IdsDosFavoritos = favoritos.map((f) => f.id);
 
-    return IdsDosFavoritos.includes(produtoId)
-  }
+    return IdsDosFavoritos.includes(produtoId);
+  };
 
   return (
     <>
@@ -37,7 +38,7 @@ const ProdutosComponent = ({
         ))}
       </S.Produtos>
     </>
-  )
-}
+  );
+};
 
-export default ProdutosComponent
+export default ProdutosComponent;
